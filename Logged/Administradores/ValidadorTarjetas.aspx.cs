@@ -763,7 +763,7 @@ public partial class Logged_Administradores_ValidadorTarjetas : System.Web.UI.Pa
     {
         List<CorporateCardDTO> tarjetas = (List<CorporateCardDTO>)HttpContext.Current.Session["Tarjetas"];
         string rol = HttpContext.Current.Session["RolUser"].ToString();
-        List<RolDTO> roles = Doc_Tools.get_RolesValidadores().ToList();
+        List<RolDTO> roles = Doc_Tools.get_RolesValidadores().SkipWhile(x => x.Key == 1).ToList();
         int level = roles.FirstOrDefault(x => x.ID == rol).Key;
         //9 - Aprobar
         //10 - Denegar
@@ -787,71 +787,120 @@ public partial class Logged_Administradores_ValidadorTarjetas : System.Web.UI.Pa
             {
                 btn_integrar.Enabled = false;
             }
-
-            if (level - card.ApprovalLevel == 1)
+            //3 escenarios a plantear  (CXP) (Tesoreria) (Finanzas)
+            switch (level)
             {
-                //partimos con la premisa de que solo vamos a ver anticipos de niveles de aprobacion = (nuestro - 1)
-                if (e.Row.Cells[6].Text == "Pendiente")
-                {
-                    btn_aprobar.Visible = true;
-                    btn_denegar.Visible = true;
-                    tbx_motivo.Visible = true;
-                    tbx_motivo.ReadOnly = false;
-
-                }
-                if (e.Row.Cells[6].Text == "Aprobado")
-                {
-                    if (card.ApprovalLevel == level)
+                case 2:  //CXP
+                    if (level - card.ApprovalLevel == 1 || card.ApprovalLevel == 0)
                     {
-                        btn_aprobar.Visible = false;
-                        btn_denegar.Visible = false;
-                        tbx_motivo.Visible = true;
-                        tbx_motivo.ReadOnly = true;
+                        if (e.Row.Cells[6].Text == "Pendiente")
+                        {
+                            btn_aprobar.Visible = true;
+                            btn_denegar.Visible = true;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = false;
+
+                        }
+                        if (e.Row.Cells[6].Text == "Aprobado")
+                        {
+                            if (card.ApprovalLevel == level)
+                            {
+                                btn_aprobar.Visible = false;
+                                btn_denegar.Visible = false;
+                                tbx_motivo.Visible = true;
+                                tbx_motivo.ReadOnly = true;
+                            }
+                            else
+                            {
+                                btn_aprobar.Visible = true;
+                                btn_denegar.Visible = true;
+                                tbx_motivo.Visible = true;
+                                tbx_motivo.ReadOnly = false;
+                            }
+
+                        }
+                        if (e.Row.Cells[6].Text == "Denegado")
+                        {
+                            btn_aprobar.Visible = false;
+                            btn_denegar.Visible = false;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = true;
+                        }
+                        if (e.Row.Cells[6].Text == "Integrado")
+                        {
+                            btn_aprobar.Visible = false;
+                            btn_denegar.Visible = false;
+                            btn_comentar.Visible = false;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = true;
+                        }
+                    }
+                    break;
+                case 3: case 4: //Tesoreria//Finanzas
+                    if (level - card.ApprovalLevel == 1)
+                    {
+                        if (e.Row.Cells[6].Text == "Pendiente")
+                        {
+                            btn_aprobar.Visible = true;
+                            btn_denegar.Visible = true;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = false;
+
+                        }
+                        if (e.Row.Cells[6].Text == "Aprobado")
+                        {
+                            if (card.ApprovalLevel == level)
+                            {
+                                btn_aprobar.Visible = false;
+                                btn_denegar.Visible = false;
+                                tbx_motivo.Visible = true;
+                                tbx_motivo.ReadOnly = true;
+                            }
+                            else
+                            {
+                                btn_aprobar.Visible = true;
+                                btn_denegar.Visible = true;
+                                tbx_motivo.Visible = true;
+                                tbx_motivo.ReadOnly = false;
+                            }
+
+                        }
+                        if (e.Row.Cells[6].Text == "Denegado")
+                        {
+                            btn_aprobar.Visible = false;
+                            btn_denegar.Visible = false;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = true;
+                        }
+                        if (e.Row.Cells[6].Text == "Integrado")
+                        {
+                            btn_aprobar.Visible = false;
+                            btn_denegar.Visible = false;
+                            btn_comentar.Visible = false;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = true;
+                        }
                     }
                     else
                     {
-                        btn_aprobar.Visible = true;
-                        btn_denegar.Visible = true;
-                        tbx_motivo.Visible = true;
-                        tbx_motivo.ReadOnly = false;
+                        btn_aprobar.Visible = false;
+                        btn_comentar.Visible = false;
+                        btn_denegar.Visible = false;
+                        tbx_motivo.ReadOnly = true;
+
+                        if (e.Row.Cells[6].Text == "Integrado")
+                        {
+                            btn_integrar.Visible = false;
+                            btn_aprobar.Visible = false;
+                            btn_denegar.Visible = false;
+                            btn_comentar.Visible = false;
+                            tbx_motivo.Visible = true;
+                            tbx_motivo.ReadOnly = true;
+                        }
                     }
-
-                }
-                if (e.Row.Cells[6].Text == "Denegado")
-                {
-                    btn_aprobar.Visible = false;
-                    btn_denegar.Visible = false;
-                    tbx_motivo.Visible = true;
-                    tbx_motivo.ReadOnly = true;
-                }
-                if (e.Row.Cells[6].Text == "Integrado")
-                {                   
-                    btn_aprobar.Visible = false;
-                    btn_denegar.Visible = false;
-                    btn_comentar.Visible = false;
-                    tbx_motivo.Visible = true;
-                    tbx_motivo.ReadOnly = true;
-                }
-            }
-            else 
-            {
-                btn_aprobar.Visible = false;
-                btn_comentar.Visible = false;
-                btn_denegar.Visible = false;
-                tbx_motivo.ReadOnly = true;
-
-                if (e.Row.Cells[6].Text == "Integrado")
-                {
-                    btn_integrar.Visible = false;
-                    btn_aprobar.Visible = false;
-                    btn_denegar.Visible = false;
-                    btn_comentar.Visible = false;
-                    tbx_motivo.Visible = true;
-                    tbx_motivo.ReadOnly = true;
-                }
-            }
+                    break;              
+            }                 
             
-
         }
     }
 }

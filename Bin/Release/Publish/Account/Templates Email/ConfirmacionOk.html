@@ -1,0 +1,116 @@
+﻿<!--//PORTAL DE PROVEDORES T|SYS|
+//10 DE ENERO, 2019
+//DESARROLLADO POR MULTICONSULTING S.A. DE C.V.
+//ACTUALIZADO POR : LUIS ANGEL GARCIA
+//PLANTILLA EMAIL DE REPORTE DE VALIDACION DE DOCUMENTOS
+//-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+	
+    <style>
+         #Cuadro { min-height:100px;  margin-left:auto;  margin-right:auto; width:98% max-width:500px;}
+         #Cuadro img {min-height:100px; max-height:150px; max-width:400px; }
+         #Mensaje {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+        #MensajeD {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+        #MensajeT {font-size: 16px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #Tabla {min-height:100px; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #Com {min-height:100px; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #Pie {font-size: 16px; font-family: helvetica, serif; min-height:100px; margin-left:auto;  margin-right:auto; max-width:500px;}
+        /*#General { width :80%; min-height:500px; margin-left:auto; margin-right:auto;}*/
+    </style>
+
+
+
+</head>
+<body>
+    <div id="General">
+
+        <center id="Cuadro">
+            <img src="https://tsys-tesoreria.com.mx/Img/Encabezado.png"  width="98%"/>
+        </center>
+
+        <center>
+            <h1>Validación de Documentos</h1>
+        </center>
+
+        <center id="MensajeT">
+            <h2>Estimado proveedor.</h2>
+        </center>
+        <center id="Mensaje">
+            <p> Te notificamos que el día de hoy se realizó la verificación de tus documentos para el acceso a nuestro portal.</p>
+            <p> A continuación, te presentamos el resumen: </p>
+            <br />
+        </center>
+
+        
+        <center>
+        	<div ID="Tabla">
+				<div class='panel panel-success'>
+			        <div class="table-responsive">
+			            <table class='table table-striped' id='table-to-result-ass-indic'>
+			                <tbody>
+			                    <tr class="table-primary"><th>Acta Constitutiva</th>
+			                    <td><p><strong>{Status1}</strong></p></td>
+			                    <td><img src{PassTemp1} border="0" width="20" height="20"></td></tr>		
+
+			                    <tr class="table-Light"><th>Constancia de Situación Fiscal</th>
+							    <td><p><strong>{Status2}</strong></p>
+							    </td><td><img src{PassTemp2} border="0" width="20" height="20"></td></tr>
+
+			                    <tr class="table-primary"><th>Poder Notarial</th> 
+	      					    <td><p><strong>{Status3}</strong></p></td>   
+						    	<td><img src{PassTemp3} border="0" width="20" height="20"></td></tr>
+
+			                    <tr class="table-Light"><th>Identificación Oficial</th>              	
+							    <td><p><strong>{Status4}</strong></p></td>     
+							    <td><img src{PassTemp4} border="0" width="20" height="20"></td></tr>
+
+			                    <tr class="table-primary"><th>Opinión de Cumplimiento de Obligaciones Fiscales</th>   
+							    <td><p><strong>{Status5}</strong></p></td>     
+							    <td><img src{PassTemp5} border="0" width="20" height="20"></td></tr>
+
+			                    <tr class="table-Light"><th>Carta Instrucción</th>                   	
+							    <td><p><strong>{Status6}</strong></p></td>
+							    <td><img src{PassTemp6} border='0' width='20' height='20'></td></tr>
+
+			                    <tr class="table-primary"><th>Contrato y/o Carta Presentación</th>      
+							    <td><p><strong>{Status7}</strong></p></td>
+							    <td><img src{PassTemp7} border='0' width='20' height='20'></td></tr>
+
+							    <tr class="table-Light"><th>Carta de No Adeudo</th>                   	
+							    <td><p><strong>{Status8}</strong></p></td>
+							    <td><img src{PassTemp6} border='0' width='20' height='20'></td></tr>
+
+			                    <tr class="table-primary"><th>Términos Y Condiciones</th>      
+							    <td><p><strong>{Status9}</strong></p></td>
+							    <td><img src{PassTemp7} border='0' width='20' height='20'></td></tr>
+			                </tbody>
+			            </table>
+			        </div>
+		    	</div>
+		   	</div>
+		</center>
+		
+			<center>
+			<div ID="Pie">
+			<br />
+			<p><strong>Te sugerimos seguir las siguientes recomendaciones:</strong></p>
+			<textarea name="comentarios" ID="Com" class="form-control" Readonly="true" rows="10" cols="40">{Comentarios}</textarea>
+			<br/>
+            <p>Si no reconoces este cambio o para cualquier duda o aclaración por favor comunícate a nuestro Centro de Atención.</p>
+			</div>
+			</center>
+			
+
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!--//PORTAL DE PROVEDORES T|SYS|
+//10 DE ENERO, 2019
+//DESARROLLADO POR MULTICONSULTING S.A. DE C.V.
+//ACTUALIZADO POR : LUIS ANGEL GARCIA
+//PLANTILLA EMAIL DE CONFIRMACION Y ACCESO AL PORTAL USUARIOS T|SYS|
+//-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+         #Cuadro { min-height:100px;  margin-left:auto;  margin-right:auto; width:98% max-width:500px;}
+         #Cuadro img {min-height:100px; max-height:150px; max-width:400px; }
+         #Mensaje {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+        #MensajeD {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+        #MensajeT {font-size: 16px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+   .button {
+   border: 1px solid #0a3c59;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   padding: 10.5px 21px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #fff 0 1px 0;
+   color: #06426c;
+   font-size: 14px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+   .button {
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+    border: 1px solid #0a3c59;
+   text-shadow: #fff 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+    }
+  .button:hover {
+   border: 1px solid #0a3c59;
+   text-shadow: #fff 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+   }
+  .button:active {
+   border: 1px solid #0a3c59;
+   text-shadow: #fff 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+   }
+
+    /*#General { width :80%; min-height:500px; margin-left:auto; margin-right:auto;}*/
+    </style>
+
+</head>
+<body>
+
+    <div id="General">
+
+        <center id="Cuadro">
+            <img src="https://tsys-tesoreria.com.mx/Img/Encabezado.png"  width="99%"/>
+        </center>
+
+        <center>
+            <h1>Aprobación de Usuario</h1>
+        </center>
+
+        <center id="MensajeT">
+            <h2>Estimado Usuario.</h2>
+        </center>
+
+        <center id="Mensaje">
+            <br />
+            <p> Te notificamos que el día de hoy se realizó el alta de usuario para poder ingresar a nuestro portal.</p>
+            <p> Los datos de ingreso son los siguientes:</p>
+            <p> Tu usuario de acceso es: </p><strong>{UserTemp}</strong>
+            <br />
+            <br />
+            <p> Y tu contraseña es: </p><p><strong>{PassTemp}</strong></p>
+            <br />
+            <br />
+            <a href="https://tsys-tesoreria.com.mx/Account/Login.aspx" class='button'>Ingresar ahora</a>
+            <br />
+            <br />
+            <p>Si no reconoces este cambio o para cualquier duda o aclaración por favor comunícate a nuestro Centro de Atención.</p>
+        </center>
+
+    </div>
+
+</body>
+</html>

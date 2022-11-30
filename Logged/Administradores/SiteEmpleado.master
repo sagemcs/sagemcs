@@ -1,0 +1,305 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteEmpleado.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <%--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />--%>
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title><%: Page.Title %>- T|SYS|®</title>
+
+    <link rel="stylesheet" href="~/Css/bootstrap.min.css">
+    <!--Version 08-Abril-2019 By Luis Angel-->
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="~/Css/bootstrap-theme.min.css">
+    <link href="~/Css/HojaProv.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Scripts/dataTable-1.10.16/datatables.css" rel="stylesheet" />
+    <link href="~/Css/sweetalert.css" rel="stylesheet" />
+    <link href="~/Css/tables.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="CustomStyles" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="bloqueo" style="display: none">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <form runat="server">
+        <asp:TextBox ID="Text_Sec" runat="server"></asp:TextBox>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Css/sweetalert.min.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery.blockui.min.js" />
+                <asp:ScriptReference Path="~/Scripts/crypto-js.js" />
+                <asp:ScriptReference Path="~/Scripts/sha256.js" />
+                <asp:ScriptReference Path="~/Scripts/custom.js" />
+                <asp:ScriptReference Path="~/Scripts/notificaciones.js" />
+            </Scripts>
+            <Services>
+                <asp:ServiceReference Path="~/Servicios/NotificacionesWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/AccesosWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/ChequeSolicitudesWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/ContrarecibosWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/DocumentosProveedoresWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/EmpresasWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/FacturasWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/PagosWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/ProveedoresWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/RolesWebService.asmx" />
+                <asp:ServiceReference Path="~/Servicios/UsuariosWebService.asmx" />
+            </Services>
+        </asp:ScriptManager>
+
+
+        <div class="navbar navbar-inverse navbar-fixed-top" id="Portada">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a runat="server" href="~/Logged/Administradores/Default_Empleado">
+                        <img src="/Img/Lgtys.png" style="border: 0px solid black;" id="Lm">
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="LetraT"><a runat="server" href="~/About">Acerca</a></li>
+                        <li id="LetraT2"><a runat="server" href="~/Contact">Contacto</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Enabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Usuario"><%: Context.User.Identity.GetUserName()  %></a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrar<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Facturas") == true)
+                                            { %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/FacturasEmpleado" title="Adminsitrar Facturas">Carga de Facturas</a>
+                                        </li>
+                                        <% } %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/Pagos_Empleados" title="Carga de  Pagos">Carga de Pagos</a>
+                                        </li>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Reembolso") == true)
+                                            { %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/ReembolsoEmpleados" title="Reembolso de Gastos">Subir Reembolso de Gastos</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Anticipo") == true)
+                                            { %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/AnticipoEmpleados" title="Anticipo de Gastos">Subir Anticipo de Gastos</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Tarjeta") == true)
+                                            { %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/TarjetaEmpleado" title="Tarjeta Corporativa">Subir Gasto Tarjeta Corporativa</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("GMedicos") == true)
+                                            { %>
+                                        <li>
+                                            <a runat="server" href="~/Logged/Administradores/GastosMedicosMenoresEmpleados" title="Gastos Médicos Menores">Subir Gastos Médicos Menores</a>
+                                        </li>
+                                        <% } %>
+
+                                        <%-- <% 
+                                if(HasRightsForSpecifiedMenu("Reembolso")==true){ %>
+                                <li>
+                                    <a runat="server" href="~/Logged/Administradores/ValidadorReembolsos" title="Adminsitrar Facturas">Validar Reembolsos</a>
+                                </li>
+                                <% } %>
+
+                                <% 
+                                if(HasRightsForSpecifiedMenu("Anticipo")==true){ %>
+                                <li>
+                                    <a runat="server" href="~/Logged/Administradores/ValidadorAnticipos" title="Adminsitrar Facturas">Validar Anticipos</a>
+                                </li>
+                                <% } %>
+
+                                <% 
+                                if(HasRightsForSpecifiedMenu("GMedicos")==true){ %>
+                                <li>
+                                    <a runat="server" href="~/Logged/Administradores/ValidadorGastosMedicosMenores" title="Adminsitrar Facturas">Validar Gastos Medicos Menores</a>
+                                </li>
+                                <% } %>
+
+                                <% 
+                                if(HasRightsForSpecifiedMenu("Tarjeta")==true){ %>
+                                <li>
+                                    <a runat="server" href="~/Logged/Administradores/ValidadorTarjetas" title="Adminsitrar Facturas">Validar Tarjetas Coorporativas</a>
+                                </li>
+                                <% } %>--%>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Facturas") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Contrarecibo">Consulta de Facturas</a>
+                                        </li>
+                                        <% } %>
+                                        <li>
+                                            <li><a runat="server" href="~/Logged/ReportsFilter/ContrarecibosFilter" title="Listar Contrarecibos">Listar Contrarecibos</a></li>
+                                        </li>
+                                        <li>
+                                            <li><a runat="server" href="~/Logged/Administradores/Administracion_Pago_Empleado" title="Consulta de Pagos">Consulta de Pagos</a></li>
+                                        </li>
+                                        <li>
+                                            <li><a runat="server" href="~/Logged/Administradores/Documentacion_Empleado" title="Listar Documentos">Datos Empleado</a></li>
+                                        </li>
+
+                                        <li>
+                                            <li><a runat="server" href="~/Logged/Administradores/Carga_Doc" title="Listar Documentos">Documentos Proveedores</a></li>
+                                        </li>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Reembolso") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/SolicitudCheque">Consulta Reembolso de Gastos</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Reembolso") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/Reembolsos">Reporte Reembolso de Gastos Beta</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Anticipo") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/Anticipos">Reporte Anticipo de Gastos</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Anticipo") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/AnticiposGrouped">Reporte Anticipo de Gastos Agrupado</a>
+                                        </li>
+                                        <% } %>
+
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Tarjeta") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/TarjetaEmpleado">Reporte Gasto Tarjeta Corporativa</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Tarjeta") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/TarjetaEmpleadoGrouped">Reporte Gasto Tarjeta Corporativa Agrupado</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("GMedicos") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/Reports/MinorMedicalExpense">Reporte Gastos Médicos Menores</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Anticipo") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/ReportsFilter/EmpresasFilter">Consulta Anticipo de Gastos</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("Tarjeta") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/ReportsFilter/ErroresFilter">Consulta Gasto Tarjeta Corporativa</a>
+                                        </li>
+                                        <% } %>
+
+                                        <% 
+                                            if (HasRightsForSpecifiedMenu("GMedicos") == true)
+                                            { %>
+                                        <li role="presentation">
+                                            <a runat="server" class="" href="~/Logged/ReportsFilter/FacturasFilter">Consulta Gastos Médicos Mayores</a>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <%--<p class="serif">&copy; <%: DateTime.Now.Year %> - T|SYS|®</p>--%>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

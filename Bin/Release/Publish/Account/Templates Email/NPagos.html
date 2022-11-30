@@ -1,0 +1,89 @@
+﻿<!--//PORTAL DE PROVEDORES T|SYS|
+//10 DE ENERO, 2019
+//DESARROLLADO POR MULTICONSULTING S.A. DE C.V.
+//ACTUALIZADO POR : LUIS ANGEL GARCIA
+//PLANTILLA EMAIL DE NOTIFICACION DE PAGO T|SYS| A PROVEEDOR
+//-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    
+    <style>
+         #Cuadro { min-height:100px;  margin-left:auto;  margin-right:auto; width:98%;}
+         #Cuadro img {min-height:100px; max-height:150px; max-width:400px; }
+         #Mensaje {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #MensajeD {font-size: 14px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #MensajeT {font-size: 16px; font-family: helvetica, serif; text-align:center; justify-content:center; margin-left:auto;  margin-right:auto; max-width:500px;}
+         #Pie {font-size: 16px; font-family: helvetica, serif; min-height:100px; margin-left:auto;  margin-right:auto; max-width:500px;}
+        /*#General { width :80%; min-height:500px; margin-left:auto; margin-right:auto;}*/
+    </style>
+</head>
+<body>
+
+    <div id="General">
+
+        <center id="Cuadro">
+            <img src="https://tsys-tesoreria.com.mx/Img/Encabezado.png"  width="99%"/>
+        </center>
+
+        <center>
+            <h1>Notificación de pago</h1>
+        </center>
+
+        <center id="MensajeT">
+            <h2>Estimado Proveedor.</h2>
+        </center>
+
+        <center id="Mensaje">
+            <!--<p> Te notificamos que el día de hoy se realizó la aplicación de pago correspondiente a la factura : <strong>{Date_Fac}</strong> </p>-->
+            {Date_Fac}
+            <br />
+            <p> A continuación te presentamos el resumen:</p>
+            <br />
+        </center>
+        
+        <center >
+        	<div ID="Tabla">
+				<div class='panel panel-success'>
+			        <div class="table-responsive">
+			            <table class='table table-striped' id='table-to-result-ass-indic'>
+			                <tbody>
+
+			                    <tr class="table-primary"><th>Fecha de pago :</th>
+			                    <td><p><strong>{Date_Fecha}</strong></p></td></tr>		
+
+			                    <tr class="table-Light"><th>Monto :</th> 
+	      					    <td><p><strong>{Date_Monto}</strong></p></td></tr>
+
+			                    <tr class="table-primary"><th>Nombre de Banco Emisor :</th>              	
+							    <td><p><strong>{Date_Banco}</strong></p></td></tr>
+
+			                    <tr class="table-Light"><th>Numero de Cuenta :</th>   
+							    <td><p><strong>{Date_Cta}</strong></p></td></tr>
+
+			                    <tr class="table-primary"><th>RFC Banco Emisor :</th>                   	
+							    <td><p><strong>{Date_RFC}</strong></p></td></tr>
+
+			                </tbody>
+			            </table>
+			        </div>
+		    	</div>
+		   	</div>
+		</center>
+        
+        <center>
+		<div ID="Pie">
+		<br />
+		<p><strong>Te recordamos que debes emitir el complemento de pago con estos datos, ya que de lo contrario no podrá ser validado </strong></p>
+		<br/>
+        <p>Para cualquier duda o aclaración por favor comunícate a nuestro Centro de Atención.</p>
+		</div>
+		</center>
+
+    </div>
+
+</body>
+</html>

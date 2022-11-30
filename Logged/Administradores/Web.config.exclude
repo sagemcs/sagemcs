@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<configuration>  
+  
+  <system.web>
+    <httpRuntime maxRequestLength="304721" />
+  </system.web>
+  
+  <system.webServer>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="2147483648" />
+      </requestFiltering>
+    </security>
+  </system.webServer>
+
+ 
+
+</configuration>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4501c0932bc43d1bff8c65ff2b2f1e8" Name="Diagram1">
+        <EntityTypeShape EntityType="PortalProveedoresModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.AccessLog" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Applications" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.AspNetUsers" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.CheckRequest" Width="1.5" PointX="8.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.ChkReqDetail" Width="1.5" PointX="16.5" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.ChkReqFile" Width="1.5" PointX="10.5" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Company" Width="1.5" PointX="3" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Documents" Width="1.5" PointX="5.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.ErrorLog" Width="1.5" PointX="10.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvcRcptDetails" Width="1.5" PointX="13.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvcRcptFile" Width="1.5" PointX="7.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Invoice" Width="1.5" PointX="8.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvoiceLines" Width="1.5" PointX="10.5" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvoiceReceipt" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvoiceTaxLine" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Memberships" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Payment" Width="1.5" PointX="11.25" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Profiles" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Roles" Width="1.5" PointX="0.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.SettingsEmail" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.TypeFiles" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Users" Width="1.5" PointX="0.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.UsersInCompany" Width="1.5" PointX="8.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.UsersInRoles" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Vendors" Width="1.5" PointX="11.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.Voucher" Width="1.5" PointX="14.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.DocumentsFile" Width="1.5" PointX="7.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.InvoiceFile" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.PaymentAppl" Width="1.5" PointX="13.5" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.PaymentFile" Width="1.5" PointX="13.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.StatusDocs" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.StatusUsers" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PortalProveedoresModel.tapLFStatus" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_AccessLog_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_AccessLog_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ErrorLog_AccessLog" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_CheckRequest_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_CheckRequest_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_CheckRequest_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_CheckRequest_Users2" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_CheckRequest_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ChkReqDetail_CheckRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ChkReqFile_CheckRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ChkReqDetail_InvoiceReceipt" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ChkReqDetail_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ChkReqDetail_Voucher" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Company_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Company_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Documents_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ErrorLog_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Invoice_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceReceipt_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Payment_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_UsersInCompany_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Vendors_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Documents_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Documents_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Documents_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_DocumentsFile_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_ErrorLog_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvcRcptDetails_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvcRcptDetails_InvoiceReceipt" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvcRcptFile_InvoiceReceipt" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Invoice_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Invoice_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceLines_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceReceipt_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceReceipt_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceReceipt_Users2" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_InvoiceReceipt_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Payment_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Payment_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Payment_Vendors" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_PaymentAppl_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_PaymentFile_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_UsersInRoles_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_UsersInCompany_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_UsersInRoles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.FK_Vendors_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PortalProveedoresModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,41 @@
+.btn.default {
+    color: #333333;
+    text-shadow: none;
+    background-color: #e5e5e5;
+}
+table {
+    font-size: 13px;
+}
+td, .centrar-data {
+    vertical-align: middle !important;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1px solid #d7d7d7;
+}
+table.dataTable.no-footer {
+    border-bottom: 1px solid #d7d7d7;
+}
+a.btn {
+    margin-left: 2px;
+}
+
+.text_align_left {
+    text-align: left;
+}
+
+.text_align_right {
+    text-align: right;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.select2-selection__rendered {
+    padding: 0 !important;
+}
+
+.class-logo {
+    padding: 0;
+    width: 60px;
+    height: 60px;
+}

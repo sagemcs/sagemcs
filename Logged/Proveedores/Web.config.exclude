@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<configuration>  
+  <system.web>
+    <sessionState mode="InProc" timeout = "10" customProvider="DefaultSessionProvider">
+      <providers>
+        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="PortalConnection"/>
+      </providers>
+    </sessionState>
+  </system.web>
+  
+  <system.webServer>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="2147483648" />
+      </requestFiltering>
+    </security>
+  </system.webServer>
+
+
+
+</configuration>

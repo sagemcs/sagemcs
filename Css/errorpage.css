@@ -1,0 +1,49 @@
+﻿body {
+    margin:0;
+}
+#Portada {
+    background-image: url("../Img/B2.jpg");
+    background-size :contain;
+    /*-webkit-box-shadow: 2px 10px 15px -8px rgba(46,60,82,1);
+    -moz-box-shadow: 2px 10px 15px -8px rgba(46,60,82,1);
+    box-shadow: 2px 10px 15px -8px rgba(46,60,82,1);*/
+}
+
+#M1 {
+    text-align: center;
+    margin-bottom: 55px;
+    margin-top: 75px;
+    font-family: sans-serif;
+    font-style: normal;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 24px;
+    color: #333333;
+}
+h1 {
+    text-align: left;
+    margin-bottom: 55px;
+    margin-top: 75px;
+    font-family: sans-serif;
+    font-style: normal;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 36px;
+    color: #333333;
+}
+
+h3 {
+    text-align:left;
+    font-family: sans-serif;
+    font-style: normal;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 18px;
+    color: #333333;
+}
+/*body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff*/
